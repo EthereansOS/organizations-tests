@@ -1,0 +1,25 @@
+{
+    "name": "organizations-tests",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "multiverse-test": "mocha"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@ethereansos/ethcomputationalorgs": "git+https://github.com/EthereansOS/ETHComputationalOrgs.git#new_org_factory",
+        "@ethereansos/multiverse": "git+https://github.com/EthereansOS/multiverse.git"
+    },
+    "multiverse": {
+        "knowledgeBase": "resources/knowledgeBase",
+        "solidityVersion": "0.8.6"
+    },
+    "mocha": {
+        "timeout": false,
+        "require": "@ethereansos/multiverse"
+    }
+}
