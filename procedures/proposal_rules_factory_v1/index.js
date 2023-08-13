@@ -1,20 +1,23 @@
 var { VOID_ETHEREUM_ADDRESS, abi, VOID_BYTES32, blockchainCall, sendBlockchainTransaction, compile, deployContract, abi, MAX_UINT256, web3Utils, fromDecimals, toDecimals } = require('@ethereansos/multiverse');
 
-var { compileWithCreatorAndInitializer, fillWithZeroes } = require('../../resources/utils');
+var { attachCreatorAndInitializerHookToCompiler, getHardCabledInfoBytecode } = require('../../resources/utils');
 
 module.exports = async function start() {
+
+    await attachCreatorAndInitializerHookToCompiler();
+
     var bytecodes = await Promise.all([
-        getRuleBytecode("@ethereansos/ethcomputationalorgs/contracts/ext/proposals/GeneralRules", "BySpecificAddress", "BY_HOST", "REAL_URI_HERE", true),
-        getRuleBytecode("@ethereansos/ethcomputationalorgs/contracts/ext/proposals/ProposalCanTerminates", "CanBeTerminatedAfter", "BY_TIME", "REAL_URI_HERE"),
-        getRuleBytecode("@ethereansos/ethcomputationalorgs/contracts/ext/proposals/ProposalCanTerminates", "CanBeTerminatedWhenHardCapReached", "BY_HARD_CAP", "REAL_URI_HERE"),
-        getRuleBytecode("@ethereansos/ethcomputationalorgs/contracts/ext/proposals/ProposalValidators", "ValidateQuorum", "BY_QUORUM", "REAL_URI_HERE"),
-        getRuleBytecode("@ethereansos/ethcomputationalorgs/contracts/ext/proposals/ProposalValidators", "IsValidUntil", "UNTIL", "REAL_URI_HERE")
+        getHardCabledInfoBytecode("@ethereansos/ethcomputationalorgs/contracts/ext/proposals/GeneralRules", "BySpecificAddress", "BY_HOST", "REAL_URI_HERE", true),
+        getHardCabledInfoBytecode("@ethereansos/ethcomputationalorgs/contracts/ext/proposals/ProposalCanTerminates", "CanBeTerminatedAfter", "BY_TIME", "REAL_URI_HERE"),
+        getHardCabledInfoBytecode("@ethereansos/ethcomputationalorgs/contracts/ext/proposals/ProposalCanTerminates", "CanBeTerminatedWhenHardCapReached", "BY_HARD_CAP", "REAL_URI_HERE"),
+        getHardCabledInfoBytecode("@ethereansos/ethcomputationalorgs/contracts/ext/proposals/ProposalValidators", "ValidateQuorum", "BY_QUORUM", "REAL_URI_HERE"),
+        getHardCabledInfoBytecode("@ethereansos/ethcomputationalorgs/contracts/ext/proposals/ProposalValidators", "IsValidUntil", "UNTIL", "REAL_URI_HERE")
     ]);
 
     var isSingleton = bytecodes.map(_ => true);
     isSingleton[0] = false;
 
-    var ProposalRulesFactory = await compileWithCreatorAndInitializer("@ethereansos/ethcomputationalorgs/contracts/ethereans/factories/impl/ProposalRulesFactory");
+    var ProposalRulesFactory = await compile("@ethereansos/ethcomputationalorgs/contracts/ethereans/factories/impl/ProposalRulesFactory");
 
     var lazyInitData = abi.encode(["bytes[]", "bool[]"], [bytecodes, isSingleton]);
     lazyInitData = abi.encode(["address", "bytes"], [VOID_ETHEREUM_ADDRESS, lazyInitData]);
@@ -44,31 +47,6 @@ module.exports = async function start() {
     web3.currentProvider.knowledgeBase.models.IsValidUntil = list[4];
 };
 
-async function getRuleBytecode(location, name, LABEL, uri, isLazyInit) {
-    var Contract = await compile(location, name);
-    var strings = toBytes32Array(LABEL, uri);
-    var args = [strings];
-    isLazyInit && args.push('0x');
-    var bytecode = new web3.eth.Contract(Contract.abi).deploy({data : Contract.bin, arguments : args}).encodeABI();
-    return bytecode;
-}
-
-function toBytes32Array(LABEL, uri) {
-    var array = [
-        fillWithZeroes(web3Utils.toHex(LABEL))
-    ];
-    uri = web3Utils.toHex(uri).substring(2);
-    array.push(fillWithZeroes(uri.substring(0, 64)));
-    uri = uri.substring(64);
-    array.push(fillWithZeroes(uri.substring(0, 64)));
-    uri = uri.substring(64);
-    array.push(fillWithZeroes(uri.substring(0, 64)));
-    uri = uri.substring(64);
-    array.push(fillWithZeroes(uri.substring(0, 64)));
-    uri = uri.substring(64);
-    array.push(fillWithZeroes(uri.substring(0, 64)));
-    return array;
-}
 
 module.exports.test = async function test() {
     var ProposalRulesFactory = await compile("@ethereansos/ethcomputationalorgs/contracts/ethereans/factories/impl/ProposalRulesFactory");
