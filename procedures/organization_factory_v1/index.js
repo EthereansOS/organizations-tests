@@ -37,6 +37,7 @@ module.exports = async function start() {
     var proposalModels = await Promise.all([
         getHardCabledInfoBytecode("@ethereansos/ethcomputationalorgs/contracts/ethereans/proposals/EthereansSubDAO", "TransferManagerProposal", "TRANSFER_MANAGER_V1", "REAL_URI_HERE", true),
         getHardCabledInfoBytecode("@ethereansos/ethcomputationalorgs/contracts/ethereans/proposals/EthereansSubDAO", "DelegationsManagerDetacherProposal", "DELEGATIONS_MANAGER_DETACHER_V1", "REAL_URI_HERE", true),
+        getHardCabledInfoBytecode("@ethereansos/ethcomputationalorgs/contracts/ethereans/proposals/EthereansSubDAO", "DelectionsManagerSetAttachInsuranceProposal", "DELEGATIONS_MANAGER_INSURANCE_V1", "REAL_URI_HERE", true),
         getHardCabledInfoBytecode("@ethereansos/ethcomputationalorgs/contracts/ethereans/proposals/EthereansSubDAO", "ChangeInvestmentsManagerTokensFromETHList", "TOKEN_BUY_V1", "REAL_URI_HERE", true),
         getHardCabledInfoBytecode("@ethereansos/ethcomputationalorgs/contracts/ethereans/proposals/EthereansSubDAO", "ChangeInvestmentsManagerTokensToETHList", "TOKEN_SELL_V1", "REAL_URI_HERE", true),
         getHardCabledInfoBytecode("@ethereansos/ethcomputationalorgs/contracts/ethereans/proposals/EthereansSubDAO", "FixedInflationManagerChangeDailyInflationPercentage", "FIXED_INFLATION_V1", "REAL_URI_HERE", true)
@@ -47,9 +48,10 @@ module.exports = async function start() {
     }
     web3.currentProvider.knowledgeBase.models.TransferManagerProposal = proposalModels[0];
     web3.currentProvider.knowledgeBase.models.DelegationsManagerDetacherProposal = proposalModels[1];
-    web3.currentProvider.knowledgeBase.models.ChangeInvestmentsManagerTokensFromETHList = proposalModels[2];
-    web3.currentProvider.knowledgeBase.models.ChangeInvestmentsManagerTokensToETHList = proposalModels[3];
-    web3.currentProvider.knowledgeBase.models.FixedInflationManagerChangeDailyInflationPercentage = proposalModels[4];
+    web3.currentProvider.knowledgeBase.models.DelectionsManagerSetAttachInsuranceProposal = proposalModels[2];
+    web3.currentProvider.knowledgeBase.models.ChangeInvestmentsManagerTokensFromETHList = proposalModels[3];
+    web3.currentProvider.knowledgeBase.models.ChangeInvestmentsManagerTokensToETHList = proposalModels[4];
+    web3.currentProvider.knowledgeBase.models.FixedInflationManagerChangeDailyInflationPercentage = proposalModels[5];
 
     var utilityModelkeys = [
         web3.currentProvider.knowledgeBase.grimoire.COMPONENT_KEY_PROPOSALS_MANAGER,
@@ -162,7 +164,8 @@ async function createMockOrganizationDeployData(noRootProposal, noFixedInflation
 
     var proposalModelsData = {
         transferManager : {...proposalRules, maxPercentagePerToken : 20},
-        delegationsManager : {...proposalRules},
+        delegationsManagerBan : {...proposalRules},
+        delegationsManagerInsurance : {...proposalRules, presetValues : [30, 50, 90, 100, 200, 250]},
         changeInvestmentsManagerTokensFromETHList : {...proposalRules, maxTokens : 5},
         changeInvestmentsManagerTokensToETHList : {...proposalRules, maxTokens : 5, maxPercentagePerToken : 20}
     }
@@ -183,7 +186,7 @@ async function createMockOrganizationDeployData(noRootProposal, noFixedInflation
         firstExecution : 0
     };
     proposalModelsData.fixedInflation = noFixedInflation ? undefined : {
-        presetValues : [0.5, 3, 5, 9, 11],
+        presetValues : [0.5, 3, 5, 9, 11, 16],
         ...proposalRules
     }
 
@@ -529,12 +532,27 @@ async function createSubDAOProposalModels(proposalModelsData) {
         creationRules : VOID_ETHEREUM_ADDRESS,
         triggeringRules : VOID_ETHEREUM_ADDRESS,
         votingRulesIndex : 0,
-        canTerminateAddresses : [proposalModelsData.delegationsManager.proposalRules.canTerminateAddresses],
-        validatorsAddresses : [proposalModelsData.delegationsManager.proposalRules.validatorsAddresses],
+        canTerminateAddresses : [proposalModelsData.delegationsManagerBan.proposalRules.canTerminateAddresses],
+        validatorsAddresses : [proposalModelsData.delegationsManagerBan.proposalRules.validatorsAddresses],
         creationData : '0x',
         triggeringData : '0x',
-        canTerminateData : [proposalModelsData.delegationsManager.proposalRules.canTerminateData],
-        validatorsData : [proposalModelsData.delegationsManager.proposalRules.validatorsData]
+        canTerminateData : [proposalModelsData.delegationsManagerBan.proposalRules.canTerminateData],
+        validatorsData : [proposalModelsData.delegationsManagerBan.proposalRules.validatorsData]
+    }, {
+        source: VOID_ETHEREUM_ADDRESS,
+        uri : '',
+        isPreset : true,
+        presetValues : proposalModelsData.delegationsManagerInsurance.presetValues.map(it => abi.encode(["uint256"], [it])),
+        presetProposals : [],
+        creationRules : VOID_ETHEREUM_ADDRESS,
+        triggeringRules : VOID_ETHEREUM_ADDRESS,
+        votingRulesIndex : 0,
+        canTerminateAddresses : [proposalModelsData.delegationsManagerInsurance.proposalRules.canTerminateAddresses],
+        validatorsAddresses : [proposalModelsData.delegationsManagerInsurance.proposalRules.validatorsAddresses],
+        creationData : '0x',
+        triggeringData : '0x',
+        canTerminateData : [proposalModelsData.delegationsManagerInsurance.proposalRules.canTerminateData],
+        validatorsData : [proposalModelsData.delegationsManagerInsurance.proposalRules.validatorsData]
     }, {
         source: VOID_ETHEREUM_ADDRESS,
         uri : '',
