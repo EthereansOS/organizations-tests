@@ -462,8 +462,12 @@ async function createDelegationsManagerLazyInitData(data) {
     var FactoryOfFactories = await compile('@ethereansos/ethcomputationalorgs/contracts/ethereans/factoryOfFactories/model/IFactoryOfFactories');
     var factoryOfFactories = new web3.eth.Contract(FactoryOfFactories.abi, web3.currentProvider.knowledgeBase.FACTORY_OF_FACTORIES);
 
-    var list = await factoryOfFactories.methods.get(web3.currentProvider.knowledgeBase.factoryIndices.delegation).call();
-    list = [...list[1]];
+    var list = [];
+
+    try {
+        list = await factoryOfFactories.methods.get(web3.currentProvider.knowledgeBase.factoryIndices.delegation).call();
+        list = [...list[1]];
+    } catch(e) {}
 
     var decimals = await getTokenDecimals(tokenAddress);
     attachInsurance = toDecimals(attachInsurance || 0, decimals);
