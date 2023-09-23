@@ -192,7 +192,7 @@
         "address": "0xb543dfdB73e4A6D96776D47622670dc9140377E1"
     },
     "mintOwnerAddress": "0x0E03fB6b2252F96282ebf0a867E5aFE58e4B03fA",
-    "fromAddress": "0xdc0090f8aDD5DB06De0897A54e753af143668668",
+    "fromAddress": "0x8f1F29a0007b01d721D4E04da4180249041f88f4",
     "balanceBefore": "417052287289040150035",
     "balanceBeforePlain": "417.0523",
     "grimoire": {
@@ -237,20 +237,20 @@
     "PROPOSAL_MODELS_FACTORY": "0x3839d95BEC1D47916696ddF27F6d4ae328e46A09",
     "models": {
         "ChangeOrganizationUriProposal": "0x533552Cf15DE6Fc4ec0dd0F7817aD435A37BDEF0",
-        "ProposalsManager": "0xBccE1c1F330825987E2cD0a617bee8242c84Ea34",
+        "ProposalsManager": "0x067449a5359dc29994a74220d112bd8ebf34748e",
         "FarmMainRegularMinStake": "0x90b69b2b49725eb17F0637Bb8de95EFFf88149E0",
         "FarmExtension": "0x8280a29063998856930775dDfBACd71165bC2F0d",
         "FixedInflationExtension": "0xe7E82EE7205E54a554fd81Eb1cFdCB00891f6870",
         "FixedInflationUniV3": "0x955801Fa39FF6C5492D6Ce43493d918B858e8918",
         "Organization": "0xf8A097978aA03d498B338CFDa94bE94FB0C0F86D",
-        "StateManager": "0xBdf64ae59bBe95317E25702CfAB99a3D092111Fc",
-        "TreasuryManager": "0xE5168e2f9e93BCA6B7b0d94d6BEaC02bB81Eaf3f",
-        "MicroservicesManager": "0x420021c08B804005E357DeFe7c4B98142b1cC0d5",
-        "InvestmentsManager": "0x399b717748407e79fea6Be30ca5A018CA7A482eF",
-        "SubDAO": "0x497a9487037d1cF31272ef1e8d251493Ae081fBe",
+        "StateManager": "0x0458abb246814ac30c344927b8724b8c11d84415",
+        "TreasuryManager": "0x4ca35d147d6cf0ab23643b4abe01c138202b485d",
+        "MicroservicesManager": "0x9eda8e3992daa8ba17741c5783c5d496236a759a",
+        "InvestmentsManager": "0xff32db49726bbdfb00f9b98db4a085284f45d1cc",
+        "SubDAO": "0x0fF70884ecd4f7c34CFa713F96f44609277dF67b",
         "SubDAOsManager": "0x81134B36d941Dfa49c968571F22397e07fdAD80B",
-        "DelegationsManager": "0x138A41E7Ae1A4ac664E539f8fabc5290370041fE",
-        "TreasurySplitterManager": "0xB7B98E849f6bD6196Ef5900F495f569393373BF6",
+        "DelegationsManager": "0xde0e43d8e4ba2e39a3a858678529b0450add0e4d",
+        "TreasurySplitterManager": "0x06eaa4989fe63df4f0d09b8dc4929607ef81b414",
         "OSFixedInflationManager": "0xCdd8F62FaB493bfa9ad211800cCc38aC45209A93",
         "OSMinter": "0x403057AFD74f7540f5A6A634EcE74bF1146aF5c9",
         "DelegationTokensManager": "0x8c6ad7C3b6dDDe7e4E797b853C950f994cCeC3B1",
@@ -261,7 +261,19 @@
         "ChangeInvestmentsManagerFourTokensFromETHList": "0x43BbE299B35d1c42327177C5f7D8705568854A34",
         "ChangeInvestmentsManagerFiveTokensToETHList": "0xdab26bCd6917e26bb7de876076082Ce170fB1C03",
         "FarmMainGen1V2": "0x1f1B7A54650E60bC8D9F4628fF46DB5884c9710E",
-        "FarmExtensionGen1": "0x5E557BA644B2c1E712E1F2b4aEd34F172ba8317f"
+        "FarmExtensionGen1": "0x5E557BA644B2c1E712E1F2b4aEd34F172ba8317f",
+        "FixedInflationManager": "0x07bfacbf49467acb86562b350ae9855b2b26910c",
+        "TransferManagerProposal": "0x074ab7b07954538a729d0b6b864c974177a5cb55",
+        "DelegationsManagerDetacherProposal": "0xd4c41ad487c1ae3549c7a975f1bd754f2227dc80",
+        "DelectionsManagerSetAttachInsuranceProposal": "0x7b1ea943df28a7f40cd14b6ba3f8a20f8ac78a8d",
+        "ChangeInvestmentsManagerTokensFromETHList": "0x3a38b071c38eea094b14efd9022a705030135d4e",
+        "ChangeInvestmentsManagerTokensToETHList": "0x916b52223a1db4b43edad673b0e1ada0eaf67f7d",
+        "FixedInflationManagerChangeDailyInflationPercentage": "0x77596af28a75eaa77ee4bca4870d8bd6ae703d9d",
+        "BySpecificAddress": "0xb22ed27F342D5d4Bb7b97C8346FA8d2cF2d24FBc",
+        "CanBeTerminatedAfter": "0x09cf1c462a1d55b3714Bd53245456ee1308Fc729",
+        "CanBeTerminatedWhenHardCapReached": "0x8f1e1867FacEf42331c321F06C7B05E3Ae99cbb3",
+        "ValidateQuorum": "0xAf1dB7d1e8E01CE85df06db30ffF17F7f829a3a9",
+        "IsValidUntil": "0xD18A0d36c18730eb497EE3b225C69d52D7efC216"
     },
     "balanceAfter": "390692926822040150035",
     "balanceAfterPlain": "390.6929",
@@ -274,7 +286,9 @@
         "farming": 2,
         "fixedInflation": 3,
         "delegation": "4",
-        "farmingGen1": "5"
+        "farmingGen1": "5",
+        "proposalRules": 6,
+        "organization": 7
     },
     "DFO_FACTORY": "0xF28e1F12b142007f988Ce0193a4db57e44aBB399",
     "SUBDAO_FACTORY": "0x1Ff2364a46680288D2278C5C2E85864c0e82bbAE",
@@ -290,5 +304,7 @@
     "COLONY_L1_ADDRESS": "0x343510198aC9D96C603Db7b70A7a6F63e9999c93",
     "OS_FIXED_INFLATION_MANAGER": {
         "address": "0xC40b51598A1C20afc5EA6f130C8447EaE445c613"
-    }
+    },
+    "PROPOSAL_RULES_FACTORY": "0xf61400c7c28B2792a7364f66cc11D79067109C67",
+    "ORGANIZATION_FACTORY": "0x6C551c1DfDCF0c9Fec0B0142FD76aa83F0BdFd2d"
 }
