@@ -188,7 +188,7 @@
         ]
     },
     "mintOwnerAddress": "0x0E03fB6b2252F96282ebf0a867E5aFE58e4B03fA",
-    "fromAddress": "0xDFf9D0F9C51120923d8CCdf14935e20784E9d3da",
+    "fromAddress": "0x8f1F29a0007b01d721D4E04da4180249041f88f4",
     "balanceBefore": "417052287289040150035",
     "balanceBeforePlain": "417.0523",
     "grimoire": {
@@ -234,7 +234,7 @@
     "models": {
         "BySpecificAddress": "0x6242D51D9B36d22dAB2D7E20632B3c6dB0aEB4BB",
         "ValidateQuorum": "0x3Fd8db99a8a94EEfaC92C30156b6D6658fD0CffA",
-        "ChangeOrganizationUriProposal": "0x533552Cf15DE6Fc4ec0dd0F7817aD435A37BDEF0",
+        "ChangeOrganizationUriProposal": "0x0ff70884ecd4f7c34cfa713f96f44609277df67b",
         "CanBeValidBeforeBlockLength": "0x56Dec78E1D1126C25a5654E0758c086a09891014",
         "CanBeTerminatedWhenHardCapReached": "0x025234C288AB45bDa065758A2b2E70F014af186b",
         "CanBeTerminatedAfterBlockLength": "0xdE61D33B3C624419673c77b21343f9139aB5E1F5",
@@ -254,11 +254,11 @@
         "TreasurySplitterManager": "0x5ae00a08373c348aa847f8c94e1f478ed4ed9744",
         "OSFixedInflationManager": "0xCdd8F62FaB493bfa9ad211800cCc38aC45209A93",
         "OSMinter": "0x403057AFD74f7540f5A6A634EcE74bF1146aF5c9",
-        "DelegationTokensManager": "0x8c6ad7C3b6dDDe7e4E797b853C950f994cCeC3B1",
-        "DelegationChangeRulesProposal": "0x7957A1f07205611b308c731b248007E3a8594b5B",
-        "DelegationTransferManagerProposal": "0x6EFbAdE3b339A47F16d7Eee97276CC2682B98a36",
-        "DelegationsManagerAttacherProposal": "0xaa2313d13C48C2bf6Ba813a2F5d58eb58D053509",
-        "VoteProposal": "0x5D14Ce935fc35Bfdc1EE896D8acd6825c5F8E050",
+        "DelegationTokensManager": "0xde0e43d8e4ba2e39a3a858678529b0450add0e4d",
+        "DelegationChangeRulesProposal": "0x074ab7b07954538a729d0b6b864c974177a5cb55",
+        "DelegationTransferManagerProposal": "0xd4c41ad487c1ae3549c7a975f1bd754f2227dc80",
+        "DelegationsManagerAttacherProposal": "0xff32db49726bbdfb00f9b98db4a085284f45d1cc",
+        "VoteProposal": "0x7b1ea943df28a7f40cd14b6ba3f8a20f8ac78a8d",
         "FixedInflationManager": "0x1be4ea6251e71c9ddde3e2beffce6411471a8a41",
         "TransferManagerProposal": "0x51e9696263c153626d4d304a91e85ecedf6e11fe",
         "DelegationsManagerDetacherProposal": "0xd24fb16aed245cd7afad01dfc8226f7038c4fa36",
@@ -285,11 +285,13 @@
         "farming": "0",
         "fixedInflation": "1",
         "proposalRules": 3,
-        "organization": 4
+        "organization": 4,
+        "delegation": 5
     },
     "FARMING_FACTORY": "0x13709C231F460235F9B1780Ea881643E38786f50",
     "FIXED_INFLATION_FACTORY": "0x24b52b9EeDf48c324B2658bA3A1C4a50686a2881",
     "deckPresto": "0xb4F0DbF6e8eC9e55E4be88e96350975B211E8713",
     "PROPOSAL_RULES_FACTORY": "0x71a41c1245beef3A43c5AFB947f068751B60641A",
-    "ORGANIZATION_FACTORY": "0x4c39e2d8F8676474B5A786D78977F2f5414d9DEc"
+    "ORGANIZATION_FACTORY": "0x4c39e2d8F8676474B5A786D78977F2f5414d9DEc",
+    "DELEGATION_FACTORY": "0xC8373dbB6Cb77F7f810282adF9B382CFfeBcfE92"
 }
