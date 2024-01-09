@@ -256,9 +256,9 @@
         "OSMinter": "0x403057AFD74f7540f5A6A634EcE74bF1146aF5c9",
         "DelegationTokensManager": "0xde0e43d8e4ba2e39a3a858678529b0450add0e4d",
         "DelegationChangeRulesProposal": "0x074ab7b07954538a729d0b6b864c974177a5cb55",
-        "DelegationTransferManagerProposal": "0xd4c41ad487c1ae3549c7a975f1bd754f2227dc80",
+        "DelegationTransferManagerProposal": "0x27e21173130d4e98f0746ac417b62b91a3c747b5",
         "DelegationsManagerAttacherProposal": "0xff32db49726bbdfb00f9b98db4a085284f45d1cc",
-        "VoteProposal": "0x7b1ea943df28a7f40cd14b6ba3f8a20f8ac78a8d",
+        "VoteProposal": "0x39877710b5b66cd9a20e3b87ac78a2ee8485bcdc",
         "FixedInflationManager": "0x1be4ea6251e71c9ddde3e2beffce6411471a8a41",
         "TransferManagerProposal": "0x51e9696263c153626d4d304a91e85ecedf6e11fe",
         "DelegationsManagerDetacherProposal": "0xd24fb16aed245cd7afad01dfc8226f7038c4fa36",
@@ -293,5 +293,5 @@
     "deckPresto": "0xb4F0DbF6e8eC9e55E4be88e96350975B211E8713",
     "PROPOSAL_RULES_FACTORY": "0x71a41c1245beef3A43c5AFB947f068751B60641A",
     "ORGANIZATION_FACTORY": "0x4c39e2d8F8676474B5A786D78977F2f5414d9DEc",
-    "DELEGATION_FACTORY": "0xC8373dbB6Cb77F7f810282adF9B382CFfeBcfE92"
+    "DELEGATION_FACTORY": "0x94f7293Ee3Be51EFE85EFb3aC9fCe52adc76c349"
 }
